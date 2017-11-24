@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+
+# Jenkins Open Source
+  jenkins:
+    image: jenkins
+    hostname: jenkins
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    ports:
+      - 8080:8080
+      - 50000:50000
+    restart: always
+
+# Artifactory Open Source
+  artifactory:
+    image: docker.bintray.io/jfrog/artifactory-oss:5.6.1
+    hostname: artifactory
+    ports:
+      - 80:8081
+    volumes:
+      - artifactory_data:/var/opt/jfrog/artifactory
+    restart: always
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 32000
+        hard: 40000
+
+# Weavescope for monitoring
+  scope:
+    image: weaveworks/scope:1.6.5
+    privileged: true
+    ports:
+      - 0.0.0.0:4040:4040
+    labels:
+      - works.weave.role=system
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command:
+      - --probe.docker=true
+    restart: always 
+
+# Volumes for persistence
+volumes:
+  jenkins_home:
+  artifactory_data:
