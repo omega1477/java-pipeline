@@ -76,5 +76,8 @@ services:
 
 # Volumes for persistence
 volumes:
+  conjur_logs:
+  nginx_logs:
+  cli_data:
   jenkins_home:
   artifactory_data:
