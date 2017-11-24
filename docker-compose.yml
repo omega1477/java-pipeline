@@ -4,7 +4,7 @@ services:
 
 # Jenkins Open Source
   jenkins:
-    image: jenkins
+    image: jenkins/jenkins:lts-alpine
     hostname: jenkins
     volumes:
       - jenkins_home:/var/jenkins_home
