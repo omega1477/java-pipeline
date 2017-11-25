@@ -2,13 +2,13 @@
 set -o pipefail
 
 # Set path to conjur-appliance tar file
-CONJUR_CONTAINER_TARFILE    = "appliance/conjur-appliance-4.9.9.0.tar"
+CONJUR_CONTAINER_TARFILE="appliance/conjur-appliance-4.9.9.0.tar"
 
 # Set necessary environment variables for Conjur configuration
-CONJUR_INGRESS_NAME         = conjur
-CONJUR_MASTER_HOSTNAME      = conjur-master 
-CONJUR_MASTER_ORGACCOUNT    = $( basename "$pwd" )
-CONJUR_MASTER_PASSWORD      = $( date +%s | sha256sum | base64 | head -c 32 )
+CONJUR_INGRESS_NAME=conjur
+CONJUR_MASTER_HOSTNAME=conjur-master 
+CONJUR_MASTER_ORGACCOUNT=$( basename "$pwd" )
+CONJUR_MASTER_PASSWORD=$( date +%s | sha256sum | base64 | head -c 32 )
 
 main () {
 
