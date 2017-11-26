@@ -74,4 +74,3 @@ volumes:
   nginx_logs:
   cli_data:
   jenkins_home:
-  artifactory_data:
