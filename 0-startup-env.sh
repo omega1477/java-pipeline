@@ -52,10 +52,9 @@ main () {
     echo
     echo "The Conjur CLI client container has already been logged in as Admin."
     echo
-    echo "The Jenkins Administrative password is set to:"
-    echo "     $(docker exec $JENKINS_CONT_ID cat /var/jenkins_home/secrets/initialAdminPassword)"
+    echo "The Jenkins Administrative password can be retrieved by doing:"
+    echo "     docker-compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword"
     echo
-    read -rsp $"Copy your passwords if you need to and press any key to finish..." -n1 key
     echo
 
 }
