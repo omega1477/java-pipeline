@@ -94,7 +94,7 @@ conjur_up() {
     # If the CONJUR_CONTAINER_TARFILE path set doesn't contain a valid file...
     if [[ ! -f $CONJUR_CONTAINER_TARFILE ]]; then
         
-        printf "\n\nFile set to CONJUR_CONTAINER_FILE in this script is not found.  Continuing to load from Docker host...\n\n"
+        printf "\n\nFile set to CONJUR_CONTAINER_TARFILE in this script is not found.  Continuing to load from Docker host...\n\n"
         
         # If the Docker host doesn't return back any images with 'conjur-appliance' in the name...
         if [[ "$(docker images --format {{.Repository}} | grep conjur-appliance)" == "" ]]; then
