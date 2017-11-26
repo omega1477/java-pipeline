@@ -131,7 +131,7 @@ conjur_up() {
     docker-compose up -d conjur
 
     # Set environment variable for Conjur Master Container ID
-    CONJUR_MASTER_CONT_ID=$(docker-compose ps -q conjur-master)
+    CONJUR_MASTER_CONT_ID=$(docker-compose ps -q conjur)
 
     #####################################
     # CONFIGURE CONJUR MASTER           #
