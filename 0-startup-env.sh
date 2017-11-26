@@ -174,7 +174,7 @@ cli_up() {
     # Copy conjur.conf configuration file to Conjur CLI Container /etc
     docker cp -L ./etc/conjur.conf $CLI_CONT_ID:/etc
     # Copy conjur-$CONJUR_MASTER_APPLIANCE.pem to Conjur CLI Container /etc
-    docker cp -L ./etc/conjur-$CONJUR_MASTER_APPLIANCE.pem $CLI_CONT_ID:/etc
+    docker cp -L ./etc/conjur-$CONJUR_MASTER_ORGACCOUNT.pem $CLI_CONT_ID:/etc
     # Execute a shell on the CLI container and login as admin to Conjur CLI
     docker-compose exec cli conjur authn login -u admin -p $CONJUR_MASTER_PASSWORD
     # Execute another shell on the CLI container and begin quietly bootstrapping Conjur
