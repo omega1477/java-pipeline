@@ -28,3 +28,5 @@ appliance/
 .project
 .gradle/
 .settings/
+.private/
+.vscode/
