@@ -33,9 +33,12 @@ main () {
     echo "-----"
     echo "Bringing up Weavescope"
     docker-compose up -d scope          # Bring Weavescope online
+    
     echo "-----"
     echo "Bringing up Jenkins Open Source"
     docker-compose up -d jenkins        # Bring Jenkins Open Source online
+    JENKINS_CONT_ID=$(docker-compose ps -q jenkins)
+
     echo "-----"
     echo "Bringing up Artifactory Open Source"
     docker-compose up -d artifactory    # Bring Artifactory Open Source online
@@ -50,9 +53,10 @@ main () {
     echo "The Conjur CLI client container has already been logged in as Admin."
     echo
     echo "The Jenkins Administrative password is set to:"
-    echo "     $(docker-compose exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword)"
+    echo "     $(docker-compose exec $JENKINS_CONT_ID cat /var/jenkins_home/secrets/initialAdminPassword)"
     echo
-    read -rsp $"Copy your passwords if you need to and press any key to finish...\n" -n1 key
+    read -rsp $"Copy your passwords if you need to and press any key to finish..." -n1 key
+    echo
 
 }
 
@@ -127,7 +131,7 @@ conjur_up() {
     docker-compose up -d conjur
 
     # Set environment variable for Conjur Master Container ID
-    CONJUR_MASTER_CONT_ID=javapipeline_conjur_1
+    CONJUR_MASTER_CONT_ID=$(docker-compose ps -q conjur-master)
 
     #####################################
     # CONFIGURE CONJUR MASTER           #
