@@ -5,6 +5,6 @@ RUN apt-get update && \
 
 RUN curl -s "https://get.sdkman.io" | bash
 
-RUN /bin/bash -l -c 'sdk install grade 4.0.1'
+RUN /bin/bash -l -c 'sdk install gradle 4.0.1'
 
 WORKDIR /code
