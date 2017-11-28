@@ -76,7 +76,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     command:
       - --probe.docker=true
-    restart: always 
+    restart: always
+
+# Java Application 'hello'
+  java-app:
+    image: hello:1.0
+    build: .
+    hostname: hello
+    entrypoint: sleep
+    command: infinity
 
 # Volumes for persistence
 volumes:
