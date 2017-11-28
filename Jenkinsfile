@@ -20,13 +20,6 @@ pipeline {
 
                 junit 'build/test-results/test/*.xml'
             }
-        
-        stage('Build Jar')
-            steps {
-                sh './build.sh'
-
-                archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true
-            }
 
         stage('Publish')
             steps {
