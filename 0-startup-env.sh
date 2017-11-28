@@ -43,6 +43,10 @@ main () {
     echo "Bringing up Artifactory Open Source"
     docker-compose up -d artifactory    # Bring Artifactory Open Source online
 
+    echo "-----"
+    echo "Building Java application Docker container"
+    docker build .
+
     echo
     echo "Demo environment ready!"
     echo "The Conjur service is running as hostname: $CONJUR_INGRESS_NAME"
