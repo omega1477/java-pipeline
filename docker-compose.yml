@@ -80,7 +80,7 @@ services:
 
 # Java Application 'hello'
   java-app:
-    image: hello:1.0
+    image: hello:0.1.0
     build: .
     hostname: hello
     entrypoint: sleep
