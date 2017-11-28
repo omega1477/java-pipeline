@@ -1,4 +1,4 @@
-FROM java:8-8-jdk
+FROM java:8-jdk
 
 RUN apt-get update && \
     apt-get install -y zip
